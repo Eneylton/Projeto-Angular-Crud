@@ -27,12 +27,10 @@ export class AlunoComponent implements OnInit {
 
   salvar(form: FormControl) {
     this.cadastroAlunoService.adicionar(this.aluno)
-      .then(() => {
+
         form.reset();
         this.toasty.success('Aluno cadastrado com sucesso!');
 
-      })
-      .catch(erro => this.errorHandler.handle(erro));
   }
 
 }
