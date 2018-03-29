@@ -3,6 +3,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ToastyService } from 'ng2-toasty';
 import { ErrorHandlerService } from '../../core/error-handler.service';
 import { PesquisarAlunoModule } from '../pesquisar-aluno.module';
+import { ConfirmationService } from 'primeng/components/common/confirmationservice';
 
 @Component({
   selector: 'app-aluno-pesquisar',
@@ -18,7 +19,8 @@ export class AlunoPesquisarComponent implements OnInit {
   constructor(
     private pesquisaService: PesquisarAlunoService,
     private toasty: ToastyService,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private confirmation: ConfirmationService
 
   ) { }
 
@@ -30,6 +32,16 @@ export class AlunoPesquisarComponent implements OnInit {
   pesquisar() {
     this.pesquisaService.pesquisar()
       .then(alunos => this.alunos = alunos).catch(erro => this.errorHandler.handle(erro));
+  }
+
+
+  confirmarExclusao(aluno: any) {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(aluno);
+      }
+    });
   }
 
 
