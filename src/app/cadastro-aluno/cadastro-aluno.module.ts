@@ -1,6 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { AlunoComponent } from './aluno/aluno.component';
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
@@ -11,7 +12,8 @@ import { ButtonModule } from 'primeng/components/button/button';
     CommonModule,
     FormsModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    RouterModule
   ],
   declarations: [AlunoComponent],
   exports:[AlunoComponent]
