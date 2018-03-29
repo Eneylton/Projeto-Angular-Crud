@@ -1,0 +1,31 @@
+<h1>Novo Aluno</h1>
+
+<form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+
+  <label>Nome</label>
+  <input pInputText type="text" name="nome"
+  [(ngModel)]="aluno.nome"
+  #descricao="ngModel" required minlength="5">
+
+  <label>Endereço</label>
+  <input pInputText type="text" name="endereco"
+  [(ngModel)]="aluno.endereco"
+  #descricao="ngModel" required minlength="5">
+
+  <label>Email</label>
+  <input pInputText type="text" name="email"
+  [(ngModel)]="aluno.email"
+  #descricao="ngModel" required minlength="5">
+
+  <label>Telefone</label>
+  <input pInputText type="text" name="telefone"
+          [(ngModel)]="aluno.telefone"
+          #descricao="ngModel" required minlength="5">
+
+  <div class="ui-g-12">
+    <button pButton icon="fa fa-check" type="submit" label="Salvar"></button>
+
+    <a icon="fa fa-arrow-circle-right" pButton label="Voltar para a pesquisa" class="ui-button-warning" ></a>
+  </div>
+
+</form>
