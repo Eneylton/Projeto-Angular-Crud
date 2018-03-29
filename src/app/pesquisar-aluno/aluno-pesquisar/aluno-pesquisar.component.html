@@ -1,31 +1,30 @@
 <div class="container">
 
-    <div class="ui-g-12">
-      <h1>Alunos</h1>
-      <br />
-      <a icon="fa fa-arrow-circle-left" pButton label="Novo Aluno" ></a>
+  <div class="ui-g-12">
+    <h1>Alunos</h1>
+    <br />
+    <button icon="fa fa-arrow-circle-left" pButton label="Novo Aluno"></button>
 
-      <hr />
-      <p-dataTable [value]="alunos" [paginator]="true" [rows]="5" [responsive]="true" #tabela>
+    <hr />
+    <p-dataTable [value]="alunos" [paginator]="true" [rows]="5" [responsive]="true" #tabela>
 
-        <p-column field="id" header="Código" styleClass="col-id" ></p-column>
-        <p-column field="nome" header="Nome"></p-column>
-        <p-column field="endereco" header="Endereço"></p-column>
-        <p-column field="email" header="Email"></p-column>
-        <p-column field="telefone" header="Telefone" styleClass="col-tel"></p-column>
-
-
-        <p-column styleClass="col-acoes" header="Ações">
-          <ng-template let-aluno="rowData" pTemplate="body">
-
-              <button pButton icon="fa-pencil" pTooltip="Editar" class="ui-button-warning" tooltipPosition="top" ></button>
-
-              <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top"></button>
-          </ng-template>
+      <p-column field="id" header="Código" styleClass="col-id"></p-column>
+      <p-column field="nome" header="Nome"></p-column>
+      <p-column field="endereco" header="Endereço"></p-column>
+      <p-column field="email" header="Email"></p-column>
+      <p-column field="telefone" header="Telefone" styleClass="col-tel"></p-column>
 
 
-        </p-column>
-      </p-dataTable>
-    </div>
+      <p-column styleClass="col-acoes" header="Ações">
+        <ng-template let-aluno="rowData" pTemplate="body">
+
+          <button pButton icon="fa-pencil" pTooltip="Editar" class="ui-button-warning" tooltipPosition="top"></button>
+
+          <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top" (click)="excluir(aluno.id)"></button>
+        </ng-template>
+
+
+      </p-column>
+    </p-dataTable>
   </div>
-
+</div>

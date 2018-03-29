@@ -15,7 +15,9 @@ export class PesquisarAlunoService {
       .then(response => response.json())
   }
 
-  excluir(codigo:number): Promise<void> {
+
+
+  remover(codigo:number): Promise<void> {
 
     return this.http.delete(`${this.alunosUrl}/${codigo}`)
       .toPromise()

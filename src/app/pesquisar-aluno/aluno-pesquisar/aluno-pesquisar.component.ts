@@ -32,4 +32,21 @@ export class AlunoPesquisarComponent implements OnInit {
       .then(alunos => this.alunos = alunos).catch(erro => this.errorHandler.handle(erro));
   }
 
+
+
+  excluir(codigo: number) {
+    this.pesquisaService.remover(codigo)
+      .then(() => {
+        if (this.grid.first === 0){
+          this.pesquisar();
+        }else{
+
+          this.grid.first = 0;
+        }
+
+        this.toasty.success('Aluno excluído com sucesso!');
+      });
+  }
+
+
 }
