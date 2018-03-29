@@ -1,6 +1,6 @@
 import { CadastroAlunoModule } from './../cadastro-aluno.module';
 import { CadastroAlunoService } from './../cadastro-aluno.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Aluno } from '../../core/model';
 import { ErrorHandlerService } from '../../core/error-handler.service';
 import { ToastyService } from 'ng2-toasty';
@@ -26,7 +26,13 @@ export class AlunoComponent implements OnInit {
   }
 
   salvar(form: FormControl) {
-    console.log(this.aluno);
+    this.cadastroAlunoService.adicionar(this.aluno)
+      .then(() => {
+        form.reset();
+        this.toasty.success('Aluno cadastrado com sucesso!');
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
 }
