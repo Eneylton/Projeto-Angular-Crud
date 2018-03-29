@@ -7,6 +7,7 @@ import { CadastroAlunoModule } from './cadastro-aluno/cadastro-aluno.module';
 
 
 import { AppComponent } from './app.component';
+import { PesquisarAlunoModule } from './pesquisar-aluno/pesquisar-aluno.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     CadastroAlunoModule,
+    PesquisarAlunoModule,
     CoreModule,
     HttpModule
   ],
