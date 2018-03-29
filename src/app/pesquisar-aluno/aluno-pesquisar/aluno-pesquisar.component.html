@@ -18,7 +18,7 @@
       <p-column styleClass="col-acoes" header="Ações">
         <ng-template let-aluno="rowData" pTemplate="body">
 
-          <button pButton icon="fa-pencil" pTooltip="Editar" class="ui-button-warning" tooltipPosition="top"></button>
+            <button pButton icon="fa-pencil" pTooltip="Editar" class="ui-button-warning" tooltipPosition="top" [routerLink]="['/alunos', aluno.id]"></button>
 
           <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top" (click)="confirmarExclusao(aluno.id)"></button>
         </ng-template>
